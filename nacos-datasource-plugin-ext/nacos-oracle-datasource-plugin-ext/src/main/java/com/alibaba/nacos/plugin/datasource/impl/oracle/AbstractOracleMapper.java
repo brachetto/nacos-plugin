@@ -15,14 +15,15 @@
  */
 package com.alibaba.nacos.plugin.datasource.impl.oracle;
 
-import java.util.List;
-
 import com.alibaba.nacos.common.utils.NamespaceUtil;
 import com.alibaba.nacos.common.utils.StringUtils;
 import com.alibaba.nacos.plugin.datasource.constants.DatabaseTypeConstant;
 import com.alibaba.nacos.plugin.datasource.dialect.DatabaseDialect;
+import com.alibaba.nacos.plugin.datasource.enums.oracle.TrustedOracleFunctionEnum;
 import com.alibaba.nacos.plugin.datasource.manager.DatabaseDialectManager;
 import com.alibaba.nacos.plugin.datasource.mapper.AbstractMapper;
+
+import java.util.List;
 
 /**
  * @author onewe
@@ -170,6 +171,17 @@ public abstract class AbstractOracleMapper extends AbstractMapper {
 			}
 		}
 		return sql.toString();
+	}
+
+	/**
+	 * Get function by functionName.
+	 *
+	 * @param functionName functionName
+	 * @return function
+	 */
+	@Override
+	public String getFunction(String functionName) {
+		return TrustedOracleFunctionEnum.getFunctionByName(functionName);
 	}
 
 	protected DatabaseDialect getDatabaseDialect() {

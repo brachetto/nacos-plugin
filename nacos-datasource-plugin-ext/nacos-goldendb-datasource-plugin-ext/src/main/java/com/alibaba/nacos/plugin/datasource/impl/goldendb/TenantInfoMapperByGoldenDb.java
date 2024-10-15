@@ -14,25 +14,21 @@
  * limitations under the License.
  */
 
-package com.alibaba.nacos.plugin.datasource.constants;
+package com.alibaba.nacos.plugin.datasource.impl.goldendb;
+
+import com.alibaba.nacos.plugin.datasource.constants.DatabaseTypeConstant;
+import com.alibaba.nacos.plugin.datasource.impl.base.BaseTenantInfoMapper;
 
 /**
- * DatabaseType Constant.
+ * The GoldenDb implementation of ConfigInfoAggrMapper.
  *
- * @author Long Yu
+ * @author brachetto
  **/
-public class DatabaseTypeConstant {
+public class TenantInfoMapperByGoldenDb extends BaseTenantInfoMapper {
 
-    public static final String POSTGRESQL = "postgresql";
+    @Override
+    public String getDataSource() {
+        return DatabaseTypeConstant.GOLDENDB;
+    }
 
-
-    public static final String MYSQL = "mysql";
-
-    public static final String ORACLE = "oracle";
-
-    public static final String DM = "dm";
-
-    public static final String SQLSERVER = "sqlserver";
-
-    public static final String GOLDENDB = "goldendb";
 }
